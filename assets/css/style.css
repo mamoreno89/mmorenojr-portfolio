@@ -87,3 +87,74 @@ blockquote{
 @media (max-width:768px){
   .nav{display:none;}
 }
+
+/* Sidebar Neville Quote — glowing awareness pulse */
+.sidebar-quote {
+  background: rgba(0, 123, 255, 0.08);
+  border-left: 3px solid var(--blue);
+  padding: 14px 18px;
+  margin-top: 24px;
+  border-radius: 6px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #dbe9ff;
+  max-width: 320px;
+  float: right;
+  margin-left: 24px;
+  margin-bottom: 12px;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.15);
+  animation: awarenessGlow 6s ease-in-out infinite;
+  background-image: linear-gradient(
+    120deg,
+    rgba(0, 123, 255, 0.1) 0%,
+    rgba(0, 200, 150, 0.15) 50%,
+    rgba(0, 123, 255, 0.1) 100%
+  );
+  background-size: 200% 200%;
+  transition: transform 0.3s ease;
+}
+.sidebar-quote:hover { transform: translateY(-3px); }
+.sidebar-quote span {
+  display: block;
+  margin-top: 6px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--blue);
+}
+
+/* Glow animation */
+@keyframes awarenessGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1),
+                0 0 20px rgba(0, 200, 150, 0.1);
+    background-position: 0% 50%;
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(0, 123, 255, 0.25),
+                0 0 28px rgba(0, 200, 150, 0.25);
+    background-position: 100% 50%;
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.1),
+                0 0 20px rgba(0, 200, 150, 0.1);
+    background-position: 0% 50%;
+  }
+}
+
+/* Clear the float so layout below doesn't jump */
+.container.narrow::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 768px) {
+  .sidebar-quote {
+    float: none;
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 24px;
+  }
+}
+
